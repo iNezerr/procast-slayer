@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procrastination Slayer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gray-800 text-white py-4 px-8">
+        <h1 class="text-2xl font-bold">Procrastination Slayer</h1>
+    </header>
+    <main class="container mx-auto my-8">
+        <section id="add-task" class="mb-8 bg-white shadow-md rounded-md p-6">
+            <h2 class="text-xl font-bold mb-4">Add New Task</h2>
+            <form id="task-form" class="flex flex-col space-y-4">
+                <div class="flex flex-col md:flex-row md:space-x-4">
+                    <input type="text" id="task-title" placeholder="Enter task title" class="border rounded-md py-2 px-3 w-full md:w-1/2" required>
+                    <input type="date" id="due-date" class="border rounded-md py-2 px-3 w-full md:w-1/4" required>
+                </div>
+                <textarea id="task-description" placeholder="Enter task description" rows="3" class="border rounded-md py-2 px-3 w-full" required></textarea>
+                <select id="priority" class="border rounded-md py-2 px-3 w-full md:w-1/4" required>
+                    <option value="" disabled selected>Select priority</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Add Task</button>
+            </form>
+        </section>
+        <section id="tasks-list">
+            <h2 class="text-xl font-bold mb-4">Tasks</h2>
+            <div id="task-filter" class="flex flex-wrap mb-4 space-x-4">
+                <div class="flex items-center">
+                    <input type="checkbox" id="completed-filter" class="mr-2">
+                    <label for="completed-filter">Completed</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="checkbox" id="incomplete-filter" class="mr-2">
+                    <label for="incomplete-filter">Incomplete</label>
+                </div>
+                <div class="flex items-center">
+                    <select id="priority-filter" class="border rounded-md py-2 px-3" required>
+                        <option value="" disabled selected>Filter by priority</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+            </div>
+            <div id="tasks-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Tasks will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
